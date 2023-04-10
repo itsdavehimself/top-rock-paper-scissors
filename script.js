@@ -18,4 +18,19 @@ Algorithm for rock, paper, scissors game
 
 */
 
+//Declare function getComputerChoice to get computer's selection
+function getComputerChoice() {
+    const random = Math.floor(Math.random()*10) + 1; // Create random number (1-10) to generate rock, paper, scissors selection
+    console.log(random);
+    if (random <= 3) {
+        console.log("rock"); // If number is <= 3 generate "Rock"
+    } else if (random <= 6) {
+        console.log("paper"); // If number is <= 6 generate "Paper"
+    } else if (random <= 9) {
+        console.log("scissors"); // If number is <= 9 generate "Scissors"
+    } else {
+        getComputerChoice(); // If number is 10, run the function again to get another number
+    }
+}
 
+getComputerChoice();
