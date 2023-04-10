@@ -36,7 +36,6 @@ function getComputerChoice() {
     return computerSelection;
 }
 
-
 // Declare function getPlayerChoice to get player's selection
 function getPlayerChoice() {
     const playerInput = prompt("Enter rock, paper, or scissors:"); // Prompt user for entry
@@ -52,11 +51,8 @@ function getPlayerChoice() {
     return playerSelection;
 }
 
-compareSelection(getPlayerChoice(), getComputerChoice());
-
-
 // Declare function to compare the inputs of user & computer
-function compareSelection(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
     if (playerSelection === "paper" && computerSelection === "rock") {
         console.log("You Win! Paper beats rock.");
     } else if (playerSelection === "paper" && computerSelection === "paper") {
@@ -78,3 +74,5 @@ function compareSelection(playerSelection, computerSelection) {
     }
 
 }
+
+playRound(getPlayerChoice(), getComputerChoice());
