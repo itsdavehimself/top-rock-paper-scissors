@@ -59,35 +59,45 @@ function getPlayerChoice() {
 // Declare function to compare the inputs of user & computer
 function playRound(playerSelection, computerSelection) {
     let winner;
+    let message;
     if (playerSelection === "paper" && computerSelection === "rock") {
         // console.log("You Win! Paper beats rock.");
         winner = "user";
+        message = "You Win! Paper beats rock."
     } else if (playerSelection === "paper" && computerSelection === "paper") {
         // console.log("Tie! You both chose paper.");
         winner = "none";
+        message = "Tie! You both chose paper."
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         // console.log("You Lose! Scissors beat paper.");
         winner = "computer";
+        message = "You Lose! Scissors beat paper.";
     } else if (playerSelection === "rock" && computerSelection === "rock") {
         // console.log("Tie! You both chose paper.");
         winner = "none";
+        message = "Tie! You both chose paper.";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         // console.log("You Lose! Paper beats rock.");
         winner = "computer";
+        message = "You Lose! Paper beats rock.";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         // console.log("You Win! Rock beats scissors.");
         winner = "user";
+        message = "You Win! Rock beats scissors.";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         // console.log("You Lose! Rock beats scissors.");
         winner = "computer";
+        message = "You Lose! Rock beats scissors.";
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         // console.log("You Win! Scissors beat paper.");
         winner = "user";
+        message = "You Win! Scissors beat paper.";
     } else {
         // console.log("Tie! You both chose scissors.");
         winner = "none";
+        message = "Tie! You both chose scissors.";
     }
-return winner;
+return [winner, message];
 }
 
 // console.log(playRound(getPlayerChoice(), getComputerChoice()));
@@ -97,19 +107,22 @@ return winner;
 function game() {
     let userCount = 0;
     let computerCount = 0;
-    while (userCount < 3 || computerCount < 3) {
-        winner = playRound(getPlayerChoice(), getComputerChoice());
+    while (userCount < 3 && computerCount < 3) {
+        [winner, message] = playRound(getPlayerChoice(), getComputerChoice());
             if (winner === "user") {
-                console.log("You Win!");
-                userCount++;
+                console.log(message);
+                ++userCount;
+                console.log("User:", userCount, " Computer:", computerCount);
             } else if (winner === "computer") {
-                console.log("You Lose!");
-                computerCount++;
+                console.log(message);
+                ++computerCount;
+                console.log("User:", userCount, " Computer:", computerCount);
             } else {
+                console.log(message);
+                console.log("User:", userCount, " Computer:", computerCount);
                 continue;
             }
     }
-
 }
 
 game();
