@@ -15,24 +15,30 @@ Algorithm for rock, paper, scissors game
 // If computerSelection loses to playerSelection, alert user of a win
 */
 
-/*
+
 //Declare function getComputerChoice to get computer's selection
 function getComputerChoice() {
-    const random = Math.floor(Math.random()*10) + 1; // Create random number (1-10) to generate rock, paper, scissors selection
+    let random = Math.floor(Math.random()*3); // Create random number (1-10) to generate rock, paper, scissors selection
     console.log(random);
-    if (random <= 3) {
-        console.log("rock"); // If number is <= 3 generate "Rock"
-    } else if (random <= 6) {
-        console.log("paper"); // If number is <= 6 generate "Paper"
-    } else if (random <= 9) {
-        console.log("scissors"); // If number is <= 9 generate "Scissors"
-    } else {
-        getComputerChoice(); // If number is 10, run the function again to get another number
+    let computerSelection;
+    if (random === 0) {
+        // console.log("rock"); // If number is 0 generate "Rock"
+        computerSelection = "rock";
+    } else if (random === 1) {
+        // console.log("paper"); // If number is 1 generate "Paper"
+        computerSelection = "paper";
+    } else if (random === 2) {
+        // console.log("scissors"); // If number is 2 generate "Scissors"
+        computerSelection = "scissors";
     }
 
-}
-*/
 
+    console.log(computerSelection);
+}
+
+getComputerChoice();
+
+/*
 // Declare function getPlayerChoice to get player's selection
 function getPlayerChoice() {
     const playerInput = prompt("Enter rock, paper, or scissors:"); // Prompt user for entry
@@ -47,9 +53,6 @@ function getPlayerChoice() {
     console.log(playerSelection);
     return playerSelection;
 }
-
-
-
-
+*/
 
 // Declare function to compare the inputs of user & computer
