@@ -34,3 +34,17 @@ function getComputerChoice() {
 }
 
 getComputerChoice();
+
+// Declare function getPlayerChoice to get player's selection
+function getPlayerChoice() {
+    const playerInput = prompt("Enter rock, paper, or scissors:", ""); // Prompt user for entry
+    const playerSelection = playerInput.toLowerCase(); // Convert input string to lowercase
+    if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+        console.log(playerSelection); // If user input is "rock", "paper", or "scissors", store entry in variable playerSelection
+    } else {
+        alert("Not a valid entry!"); // If input is not "rock", "paper", or "scissors", alert user
+        getPlayerChoice(); // Run function again to ask for correct input
+    }
+}
+
+getPlayerChoice();
