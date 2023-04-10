@@ -10,7 +10,7 @@ Algorithm for rock, paper, scissors game
 // Verify correct input for selection
 // If bad input, alert user and prompt for a correct input
 // If input is good, store it in variable playerSelection
-// Delcare function compareChoice to determine winner of the game
+// Delcare function compareSelection to determine winner of the game
 // Compare computerSelection and playerSelection
 // If computerSelection beats playerSelection, alert user of a loss
 // If computerSelection === playerSelection, alert user of a tie
@@ -21,26 +21,33 @@ Algorithm for rock, paper, scissors game
 //Declare function getComputerChoice to get computer's selection
 function getComputerChoice() {
     const random = Math.floor(Math.random()*10) + 1; // Create random number (1-10) to generate rock, paper, scissors selection
+    const computerSelection = null;
     console.log(random);
     if (random <= 3) {
         console.log("rock"); // If number is <= 3 generate "Rock"
+        computerSelection = "rock";
+        return computerSelection;
     } else if (random <= 6) {
         console.log("paper"); // If number is <= 6 generate "Paper"
+        computerSelection = "paper";
+        return computerSelection;
     } else if (random <= 9) {
         console.log("scissors"); // If number is <= 9 generate "Scissors"
+        computerSelection = "scissors";
+        return computerSelection;
     } else {
         getComputerChoice(); // If number is 10, run the function again to get another number
     }
-}
 
-getComputerChoice();
+}
 
 // Declare function getPlayerChoice to get player's selection
 function getPlayerChoice() {
-    const playerInput = prompt("Enter rock, paper, or scissors:", ""); // Prompt user for entry
+    const playerInput = prompt("Enter rock, paper, or scissors:"); // Prompt user for entry
     const playerSelection = playerInput.toLowerCase(); // Convert input string to lowercase
     if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
         console.log(playerSelection); // If user input is "rock", "paper", or "scissors", store entry in variable playerSelection
+        return playerSelection;
     } else {
         alert("Not a valid entry!"); // If input is not "rock", "paper", or "scissors", alert user
         getPlayerChoice(); // Run function again to ask for correct input
@@ -48,3 +55,7 @@ function getPlayerChoice() {
 }
 
 getPlayerChoice();
+getComputerChoice();
+
+
+// Declare function to compare the inputs of user & computer
