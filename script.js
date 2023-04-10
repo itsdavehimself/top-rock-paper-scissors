@@ -37,7 +37,7 @@ function getComputerChoice() {
         computerSelection = "scissors";
     }
 
-    console.log(computerSelection);
+    console.log("Computer:", computerSelection);
     return computerSelection;
 }
 
@@ -50,9 +50,9 @@ function getPlayerChoice() {
         playerSelection = playerInputLower; // If user input is "rock", "paper", or "scissors", store entry in variable playerSelection
     } else {
         alert("Not a valid entry!"); // If input is not "rock", "paper", or "scissors", alert user
-        getPlayerChoice(); // Run function again to ask for correct input
+        playerSelection = playerInputLower;
     }
-    console.log(playerSelection);
+    console.log("You:", playerSelection);
     return playerSelection;
 }
 
@@ -75,7 +75,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === "rock" && computerSelection === "rock") {
         // console.log("Tie! You both chose paper.");
         winner = "none";
-        message = "Tie! You both chose paper.";
+        message = "Tie! You both chose rock.";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
         // console.log("You Lose! Paper beats rock.");
         winner = "computer";
@@ -92,10 +92,13 @@ function playRound(playerSelection, computerSelection) {
         // console.log("You Win! Scissors beat paper.");
         winner = "user";
         message = "You Win! Scissors beat paper.";
-    } else {
+    } else if (playerSelection === "scissors" && computerSelection === "scissors") {
         // console.log("Tie! You both chose scissors.");
         winner = "none";
         message = "Tie! You both chose scissors.";
+    } else {
+        winner = "none";
+        message = "Bad user input!";
     }
 return [winner, message];
 }
@@ -123,7 +126,13 @@ function game() {
                 continue;
             }
     }
+
+    if (userCount === 3) {
+        console.log("You won 3 times. You're the champ!");
+    } else {
+        console.log("You lost 3 out of 5 games. GAME OVER!");
+    }
 }
 
-game();
 
+game();
