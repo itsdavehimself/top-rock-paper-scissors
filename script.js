@@ -23,7 +23,7 @@ Algorithm for rock, paper, scissors game
 
 //Declare function getComputerChoice to get computer's selection
 function getComputerChoice() {
-    let random = Math.floor(Math.random()*3); // Create random number (1-10) to generate rock, paper, scissors selection
+    let random = Math.floor(Math.random()*3); // Create random number (0-3) to generate rock, paper, scissors selection
     // console.log(random);
     let computerSelection;
     if (random === 0) {
