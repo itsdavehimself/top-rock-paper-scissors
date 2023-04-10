@@ -61,44 +61,35 @@ function playRound(playerSelection, computerSelection) {
     let winner;
     let message;
     if (playerSelection === "paper" && computerSelection === "rock") {
-        // console.log("You Win! Paper beats rock.");
         winner = "user";
-        message = "You Win! Paper beats rock."
+        message = "You Win! Paper beats rock." // Player chooses paper and computer chooses rock.
     } else if (playerSelection === "paper" && computerSelection === "paper") {
-        // console.log("Tie! You both chose paper.");
         winner = "none";
-        message = "Tie! You both chose paper."
+        message = "Tie! You both chose paper." // Player chooses paper and computer chooses paper.
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
-        // console.log("You Lose! Scissors beat paper.");
         winner = "computer";
-        message = "You Lose! Scissors beat paper.";
+        message = "You Lose! Scissors beat paper."; // Player chooses paper and computer chooses scissors.
     } else if (playerSelection === "rock" && computerSelection === "rock") {
-        // console.log("Tie! You both chose paper.");
         winner = "none";
-        message = "Tie! You both chose rock.";
+        message = "Tie! You both chose rock."; // Player chooses rock and computer chooses rock.
     } else if (playerSelection === "rock" && computerSelection === "paper") {
-        // console.log("You Lose! Paper beats rock.");
         winner = "computer";
-        message = "You Lose! Paper beats rock.";
+        message = "You Lose! Paper beats rock."; // Player chooses rock and computer chooses paper.
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
-        // console.log("You Win! Rock beats scissors.");
         winner = "user";
-        message = "You Win! Rock beats scissors.";
+        message = "You Win! Rock beats scissors."; // Player chooses rock and computer chooses scissors.
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
-        // console.log("You Lose! Rock beats scissors.");
         winner = "computer";
-        message = "You Lose! Rock beats scissors.";
+        message = "You Lose! Rock beats scissors."; // Player chooses scissors and computer chooses rock.
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
-        // console.log("You Win! Scissors beat paper.");
         winner = "user";
-        message = "You Win! Scissors beat paper.";
+        message = "You Win! Scissors beat paper."; // Player chooses scissors and computer chooses paper.
     } else if (playerSelection === "scissors" && computerSelection === "scissors") {
-        // console.log("Tie! You both chose scissors.");
         winner = "none";
-        message = "Tie! You both chose scissors.";
+        message = "Tie! You both chose scissors."; // Player chooses scissors and computer chooses scissors.
     } else {
         winner = "none";
-        message = "Bad user input!";
+        message = "Bad user input!"; // Player chooses bad input.
     }
 return [winner, message];
 }
@@ -108,29 +99,29 @@ return [winner, message];
 
 // Declare function to loop playRound
 function game() {
-    let userCount = 0;
-    let computerCount = 0;
-    while (userCount < 3 && computerCount < 3) {
+    let userCount = 0; // Initial player score
+    let computerCount = 0; // Initial computer score
+    while (userCount < 3 && computerCount < 3) { // Keep looping until player or computer score is 3
         [winner, message] = playRound(getPlayerChoice(), getComputerChoice());
             if (winner === "user") {
                 console.log(message);
                 ++userCount;
-                console.log("User:", userCount, " Computer:", computerCount);
+                console.log("User:", userCount, " Computer:", computerCount); // If player wins add 1 to player score & display latest score.
             } else if (winner === "computer") {
                 console.log(message);
                 ++computerCount;
-                console.log("User:", userCount, " Computer:", computerCount);
+                console.log("User:", userCount, " Computer:", computerCount); // If computer wins add 1 to player score & display latest score.
             } else {
                 console.log(message);
-                console.log("User:", userCount, " Computer:", computerCount);
+                console.log("User:", userCount, " Computer:", computerCount); // If tie or bad user input, don't add any score & display latest score.
                 continue;
             }
     }
 
     if (userCount === 3) {
-        console.log("You won 3 times. You're the champ!");
+        console.log("You won 3 times. You're the champ!"); // When player score is 3, display win message.
     } else {
-        console.log("You lost 3 out of 5 games. GAME OVER!");
+        console.log("You lost 3 out of 5 games. GAME OVER!"); // When computer score is 3, display win message.
     }
 }
 
