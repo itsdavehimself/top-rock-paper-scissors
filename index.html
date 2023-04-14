@@ -3,20 +3,29 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Rock, Paper, Scissors</title>
-        <link rel="stylesheet" href="">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
     </head>
-
     <body>
-        <div class="buttons">
-            <button class="button" id="rock">Rock</button>
-            <button class="button" id="paper">Paper</button>
-            <button class="button" id="scissors">Scissors</button>
-        </div>
-        <div class="results">
-            <h1 class="scoreTitle">Rock, Paper, Scissors</h1>
-            <h2 class="scores">User: 0 - Computer: 0</h2>
-            <p class ="round"></p>
+        <div class="main-container">
+            <div class="title">  
+                <h1 class="scoreTitle">Rock, Paper, Scissors</h1>
+            </div>
+            <div class="buttons">
+                <button class="button" id="rock"></button>
+                <button class="button" id="paper"></button>
+                <button class="button" id="scissors"></button>
+            </div>
+            <div class="results">
+                <h2 class="scores">User: 0 - Computer: 0</h2>
+                <p class ="round"></p>
+            </div>
         </div>
         <script src="script.js"></script>
     </body>

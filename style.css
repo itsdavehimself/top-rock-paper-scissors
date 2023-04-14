@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    
+}
+
+.main-container {
+    background-color: #F1F4F5;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.results {
+    text-align: center;
+}
+
+.buttons {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button:hover {
+    cursor: pointer;
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    -webkit-transition: transform .15s ease-in-out;
+    -moz-transition:transform .15s ease-in-out;
+    -ms-transition:transform .15s ease-in-out;
+}
+
+#rock {
+    background-image: url(images/raised-fist_270a.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  /* put the height and width of your image here */
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+    border: none;
+    
+}
+
+#paper {
+    background-image: url(images/raised-hand_270b.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  /* put the height and width of your image here */
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+    border: none;
+}
+
+#scissors {
+    background-image: url(images/victory-hand_270c-fe0f.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  /* put the height and width of your image here */
+    background-color: transparent;
+    height: 50px;
+    width: 50px;
+    border: none;
+}
+
+button span {
+  display: none;
+}
