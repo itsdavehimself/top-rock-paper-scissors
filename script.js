@@ -1,24 +1,125 @@
-/*
-Algorithm for rock, paper, scissors game
-// Declare function getComputerChoice to get computer's selection
-// Define variable computerSelection to store computer's selection
-// Declare function getPlayerchoice to get player's selection
-// Define variable playerSelection to store user's selection
-// Prompt user for a selection
-// Verify correct input for selection
-// If bad input, alert user and prompt for a correct input
-// If input is good, store it in variable playerSelection
-// Delcare function compareSelection to determine winner of the game
-// Compare computerSelection and playerSelection
-// If computerSelection beats playerSelection, alert user of a loss
-// If computerSelection === playerSelection, alert user of a tie
-// If computerSelection loses to playerSelection, alert user of a win
-// Declare playGame function to play game 5 times and keep score (best of 3)
-// Define variable userCounter to count user wins
-// Define variable computerCounter to count computer wins
-// Loop function playGame until userCounter or computerCounter === 3
-// Alert player who won
-*/
+let userCount = 0;
+let computerCount = 0;
+const results = document.querySelector(".results");
+const match = document.createElement("h2");
+const playAgain = document.createElement("button");
+
+
+function playGame() {
+    if (userCount === 3 || computerCount === 3) {
+        disableButton();
+        if (userCount > computerCount) {
+            match.classList.add("results");
+            match.textContent = "You've defeated the computer!";
+            match.style.color = "green";
+            results.appendChild(match);
+            playAgain.classList.add("playAgain");
+            playAgain.textContent = "Play again?";
+            results.appendChild(playAgain);
+            playAgain.addEventListener("click", enableButton);
+        } else {
+            match.classList.add("results");
+            match.textContent = "You've been defeated by the all-powerful AI.";
+            match.style.color = "red";
+            results.appendChild(match);
+            playAgain.classList.add("playAgain");
+            playAgain.textContent = "Play again?";
+            results.appendChild(playAgain);
+            playAgain.addEventListener("click", enableButton);
+
+        }
+    }
+}
+
+const enableButton = () => {
+    userButton[0].disabled = false;
+    userButton[1].disabled = false;
+    userButton[2].disabled = false;
+    userCount = 0;
+    computerCount = 0;
+    results.removeChild(playAgain);
+    results.removeChild(match);
+    round.textContent = "";
+    scores.textContent = "User: 0 - Computer: 0";
+}
+
+const disableButton = () => {
+    userButton[0].disabled = true;
+    userButton[1].disabled = true;
+    userButton[2].disabled = true;
+}
+
+const round = document.querySelector(".round");
+const scores = document.querySelector(".scores");
+
+const userButton = document.querySelectorAll(".button");
+userButton[0].addEventListener("click", userRock);
+userButton[1].addEventListener("click", userPaper);
+userButton[2].addEventListener("click", userScissors);
+
+function userRock (event) {
+    playerSelection = "rock";
+    console.log(`You: ${playerSelection}`);
+    [winner, message] = playRound(playerSelection, getComputerChoice());
+    if (winner === "user") {
+        round.textContent = `${message}`;
+        ++userCount;
+        scores.textContent = `User: ${userCount} - Computer: ${computerCount}`; // If player wins add 1 to player score & display latest score.
+        playGame();
+    } else if (winner === "computer") {
+        round.textContent = `${message}`;
+        ++computerCount;
+        scores.textContent = `User: ${userCount} - Computer: ${computerCount}`; // If computer wins add 1 to player score & display latest score.
+        playGame();
+    } else {
+        round.textContent = `${message}`;
+        scores.textContent = `User: ${userCount} - Computer: ${computerCount}`; // If tie or bad user input, don't add any score & display latest score.
+        playGame();
+    }
+    
+}
+
+function userPaper (event) {
+    playerSelection = "paper";
+    console.log(`You: ${playerSelection}`);
+    [winner, message] = playRound(playerSelection, getComputerChoice());
+    if (winner === "user") {
+        round.textContent = `${message}`;
+        ++userCount;
+        scores.textContent = `User: ${userCount} - Computer: ${computerCount}`; // If player wins add 1 to player score & display latest score.
+        playGame();
+    } else if (winner === "computer") {
+        round.textContent = `${message}`;
+        ++computerCount;
+        scores.textContent = `User: ${userCount} - Computer: ${computerCount}`; // If computer wins add 1 to player score & display latest score.
+        playGame();
+    } else {
+        round.textContent = `${message}`;
+        scores.textContent = `User: ${userCount} - Computer: ${computerCount}`; // If tie or bad user input, don't add any score & display latest score.
+        playGame();
+    }
+}
+
+function userScissors (event) {
+    playerSelection = "scissors";
+    console.log(`You: ${playerSelection}`);
+    [winner, message] = playRound(playerSelection, getComputerChoice());
+    if (winner === "user") {
+        round.textContent = `${message}`;
+        ++userCount;
+        scores.textContent = `User: ${userCount} - Computer: ${computerCount}`; // If player wins add 1 to player score & display latest score.
+        playGame();
+    } else if (winner === "computer") {
+        round.textContent = `${message}`;
+        ++computerCount;
+        scores.textContent = `User: ${userCount} - Computer: ${computerCount}`; // If computer wins add 1 to player score & display latest score.
+        playGame();
+    } else {
+        round.textContent = `${message}`;
+        scores.textContent = `User: ${userCount} - Computer: ${computerCount}`; // If tie or bad user input, don't add any score & display latest score.
+        playGame();
+    }
+}
 
 
 //Declare function getComputerChoice to get computer's selection
@@ -41,20 +142,7 @@ function getComputerChoice() {
     return computerSelection;
 }
 
-// Declare function getPlayerChoice to get player's selection
-function getPlayerChoice() {
-    const playerInput = prompt("Enter rock, paper, or scissors:"); // Prompt user for entry
-    const playerInputLower = playerInput.toLowerCase(); // Convert input string to lowercase
-    let playerSelection;
-    if (playerInputLower === "rock" || playerInputLower === "paper" || playerInputLower === "scissors") {
-        playerSelection = playerInputLower; // If user input is "rock", "paper", or "scissors", store entry in variable playerSelection
-    } else {
-        alert("Not a valid entry!"); // If input is not "rock", "paper", or "scissors", alert user
-        playerSelection = playerInputLower;
-    }
-    console.log("You:", playerSelection);
-    return playerSelection;
-}
+
 
 // Declare function to compare the inputs of user & computer
 function playRound(playerSelection, computerSelection) {
@@ -93,37 +181,3 @@ function playRound(playerSelection, computerSelection) {
     }
 return [winner, message];
 }
-
-// console.log(playRound(getPlayerChoice(), getComputerChoice()));
-
-
-// Declare function to loop playRound
-function game() {
-    let userCount = 0; // Initial player score
-    let computerCount = 0; // Initial computer score
-    while (userCount < 3 && computerCount < 3) { // Keep looping until player or computer score is 3
-        [winner, message] = playRound(getPlayerChoice(), getComputerChoice());
-            if (winner === "user") {
-                console.log(message);
-                ++userCount;
-                console.log("User:", userCount, " Computer:", computerCount); // If player wins add 1 to player score & display latest score.
-            } else if (winner === "computer") {
-                console.log(message);
-                ++computerCount;
-                console.log("User:", userCount, " Computer:", computerCount); // If computer wins add 1 to player score & display latest score.
-            } else {
-                console.log(message);
-                console.log("User:", userCount, " Computer:", computerCount); // If tie or bad user input, don't add any score & display latest score.
-                continue;
-            }
-    }
-
-    if (userCount === 3) {
-        console.log("You won 3 times. You're the champ!"); // When player score is 3, display win message.
-    } else {
-        console.log("You lost 3 out of 5 games. GAME OVER!"); // When computer score is 3, display win message.
-    }
-}
-
-
-game();
